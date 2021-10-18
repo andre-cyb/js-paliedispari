@@ -6,49 +6,33 @@
 
 
 //prompt per l'utente
-let parolaUtente = prompt("inserisci una parola");
+let parolaUtenteDaInvertire = prompt("inserisci una parola");
+console.log(parolaUtenteDaInvertire);
 
 
-const usingArrayFrom = Array.from(parolaUtente);
-console.log(usingArrayFrom);
+//divido la parola nelle singole lettere
+let splitParolaUtente = parolaUtenteDaInvertire.split("");
+console.log(splitParolaUtente);
 
-/* for (let i = parolaUtente.length - 1; i >= 0; i--) {
+//inverto l'ordine delle lettere
+let reverseParolaUtente = splitParolaUtente.reverse();
+console.log(reverseParolaUtente);
 
+//riunisco in un unica parola le lettere invertite
+let parolaUtenteInvertita = reverseParolaUtente.join("");
+console.log(parolaUtenteInvertita);
 
-    let letter = [i];
-    console.log(i);
-
-
-
-
-} */
-
-
-
-
-
-
-
-const reverseArray = usingArrayFrom.reverse();
-console.log(reverseArray);
-/* 
-for (let i = 0; i < reverseArray.length; i++) {
-
-
-    let letterReverse = reverseArray[i];
-    console.log(letterReverse);
-
-
-
-} */
-
-
-
-if (letter === letterReverse) {
+//confronto le parole per vedere se sono palindrome
+if (parolaUtenteDaInvertire === parolaUtenteInvertita) {
     console.log("la parola che hai inserito è palindroma");
 } else {
     console.log("mi dispiace, la parola inserita non è palindroma");
 }
+
+
+
+
+
 
 
 
