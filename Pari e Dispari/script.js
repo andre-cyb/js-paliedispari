@@ -11,45 +11,68 @@
  * dichiarare il vincitore
  */
 
-
-
-
+/////////////////////////////////////////////////////////////////////////////////////////
+// NOTA: IL CODICE SEGUENTE E' SENZA function() PERCHE' VOLEVO PROCEDERE PER GRADI, 
+//       ORA CHE IL CODICE FUNZIONA PROCEDERO' A ICORPORARE LE function().
+/////////////////////////////////////////////////////////////////////////////////////////
 
 //  UTENTE
 // chiedo all'utente pari/dispari e il numero da 1 a 5
 
 const pariDispariUtente = prompt("Inserisci Pari o Dispari.");
+pariDispariUtente.toLowerCase();
 const numeroUtente = prompt("inserisci un numero da 1 a 5");
 console.log("l'utente ha scelto: " + pariDispariUtente);
 console.log("l'utente ha scelto: " + numeroUtente);
 
 
 
+//COMPUTER
+let randomNumber = numeroGenerato();
 
-//  COMPUTER
+console.log("Il computer ha scelto: " + randomNumber);
 
-function numeroRandom(min, max) {
+
+
+//SOMMA
+
+let somma = parseInt(numeroUtente) + parseInt(randomNumber);
+console.log("La somma dei due numeri è: " + somma);
+
+if ((numeroUtente < 1) || numeroUtente > 5) {
+    alert("per favore inserisci un numero");
+} else {
+    controlloPari(somma);
+}
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
+// FUNZIONI
+
+//per generare numeri //computer
+function numeroGenerato() {
     let randomNumber = Math.floor(Math.random() * 5) + 1;
     return randomNumber;
-
 }
-console.log("il computer ha scelto: " + numeroRandom(1, 5));
 
 
+//per controllare se il risultato è pari
+function controlloPari(num) {
+    if ((pariDispariUtente === "pari") && (somma % 2 === 0)) {
+        console.log("l'utente ha vinto");
 
+    } else if ((pariDispariUtente === "dispari") && (somma % 3 === 0)) {
+        console.log("l'utente ha vinto");
 
+    } else {
+        console.log("l'utente ha perso");
 
-
-// LA SOMMA DEI NUMERI
-
-function sommaNumeri(num1, num2) {
-    const somma = parseInt(numeroUtente) + numeroRandom(1, 5);
-    console.log(numeroRandom(1, 5));
-    return somma;
+    }
 }
-console.log("la somma dei numeri scelti è: " + sommaNumeri(parseInt(numeroUtente) + numeroRandom(1, 5)));
-
-
-
-
-
